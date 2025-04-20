@@ -84,12 +84,15 @@
       top: 1rem;
       right: 1rem;
       background: none;
-      border: 2px solid var(--color-accent);
-      color: var(--color-accent);
-      padding: 0.3rem 0.8rem;
-      border-radius: 6px;
+      border: none;
+      font-size: 1.5rem;
       cursor: pointer;
-      font-weight: bold;
+      color: var(--color-accent);
+      transition: transform 0.2s;
+    }
+
+    .toggle-theme:hover {
+      transform: scale(1.2);
     }
 
     footer {
@@ -108,7 +111,7 @@
   </style>
 </head>
 <body>
-  <button class="toggle-theme" onclick="toggleTheme()">Toggle Theme</button>
+  <button class="toggle-theme" id="themeToggle" onclick="toggleTheme()">🌙</button>
 
   <header>
     <img src="profile.jpg" alt="Your Profile Picture" />
@@ -124,7 +127,7 @@
 
   <section id="about">
     <h2>About Me</h2>
-    <p>Hey! I'm 4uffin – a tech enthusiast who enjoys building clean, functional websites and exploring all things code. This site is a little window into what I do and what I’ve been working on.</p>
+    <p>Hey! I'm Duffin (or 4uffin) – a tech enthusiast who enjoys building clean, functional websites and exploring all things code. This site is a little window into what I do and what I’ve been working on.</p>
   </section>
 
   <section id="projects">
@@ -139,7 +142,7 @@
       <li>Python</li>
       <li>Front-end design</li>
       <li>LocalStorage apps</li>
-      <li>Git & GitHub</li>
+      <li>GitHub</li>
     </ul>
   </section>
 
@@ -150,15 +153,23 @@
 
   <footer>
     <p>Find me on <a href="https://github.com/4uffin" target="_blank">GitHub</a></p>
-    <p>&copy; 2025 4uffin</p>
+    <p>2025 4uffin</p>
   </footer>
 
   <script>
     function toggleTheme() {
       const html = document.documentElement;
+      const btn = document.getElementById("themeToggle");
       const current = html.getAttribute("data-theme");
-      html.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+      const newTheme = current === "dark" ? "light" : "dark";
+      html.setAttribute("data-theme", newTheme);
+      btn.textContent = newTheme === "dark" ? "🌙" : "🌞";
     }
+
+    window.onload = () => {
+      const current = document.documentElement.getAttribute("data-theme");
+      document.getElementById("themeToggle").textContent = current === "dark" ? "🌙" : "🌞";
+    };
   </script>
 </body>
 </html>
