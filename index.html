@@ -1,10 +1,164 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <title>Hello, world!</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4uffin | GitHub Page</title>
+  <style>
+    :root {
+      --color-bg-light: #ffffff;
+      --color-text-light: #111111;
+      --color-bg-dark: #1f1f1f;
+      --color-text-dark: #f0f0f0;
+      --color-accent: #007acc;
+    }
+
+    [data-theme="light"] {
+      background-color: var(--color-bg-light);
+      color: var(--color-text-light);
+    }
+
+    [data-theme="dark"] {
+      background-color: var(--color-bg-dark);
+      color: var(--color-text-dark);
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
+
+    header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      color: var(--color-accent);
+      margin-top: 0.3rem;
+      font-style: italic;
+    }
+
+    nav {
+      text-align: center;
+      margin: 1rem 0;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: inherit;
+      font-weight: 500;
+    }
+
+    section {
+      padding: 3rem 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h2 {
+      border-bottom: 2px solid var(--color-accent);
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .toggle-theme {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: 2px solid var(--color-accent);
+      color: var(--color-accent);
+      padding: 0.3rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      border-top: 1px solid #444;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        display: inline-block;
+        margin: 0.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello, world!</h1>
+  <button class="toggle-theme" onclick="toggleTheme()">Toggle Theme</button>
+
+  <header>
+    <img src="profile.jpg" alt="Your Profile Picture" />
+    <h1>4uffin</h1>
+    <p>Brought to you by GitHub</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#blog">Blog</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hey! I'm 4uffin – a tech enthusiast who enjoys building clean, functional websites and exploring all things code. This site is a little window into what I do and what I’ve been working on.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <p>Coming soon! I’ll be showcasing my projects here, from small experiments to full-fledged apps. Stay tuned.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>HTML, CSS, JavaScript</li>
+      <li>Python</li>
+      <li>Front-end design</li>
+      <li>LocalStorage apps</li>
+      <li>Git & GitHub</li>
+    </ul>
+  </section>
+
+  <section id="blog">
+    <h2>Blog / Updates</h2>
+    <p>Updates and thoughts on coding, tech, and whatever else I’m into will go here.</p>
+  </section>
+
+  <footer>
+    <p>Find me on <a href="https://github.com/4uffin" target="_blank">GitHub</a></p>
+    <p>&copy; 2025 4uffin</p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute("data-theme");
+      html.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+    }
+  </script>
 </body>
 </html>
